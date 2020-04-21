@@ -28,11 +28,36 @@ library(rmarkdown)
 
 >This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-$$ Y= 3^4+\alpha + 4\beta_0^2 + \epsilon +u_0
-$$
+\begin{equation}
+ Y= 3^4+\alpha + 4\beta_0^2 + \epsilon +u_0 
+ \end{equation}
+
+\[ T^{i_1 i_2 \dots i_p}_{j_1 j_2 \dots j_q} = T(x^{i_1},\dots,x^{i_p},e_{j_1},\dots,e_{j_q}) \]
+
+sum \[ \int^\infty_0 \frac{dx}{du} = \sum_{i=0}^{\infty} \frac{4\beta_j}{fd} \]
+
+\[
+x \in \lambda_2^r
+\]
+
+$\prod_{i=a}^{b} f(i)$
+
+\[ \lim_{x\to 0} f(x) \]
+
+Some of the \textbf{greatest} 
+discoveries in \underline{science} 
+were made by \textbf{\textit{accident for how many years?}}
+
+\setlength{\parindent}{1cm}
+This is the text in first paragraph. This is the text in first 
+paragraph. This is the text in first paragraph.
+This is the text in second paragraph. This is the text in second 
+paragraph. This is the text in second paragraph.
+
+\setlength{\columnsep}{1in}
+The paper shows a key input into entrepreneurship and the investment demand of young firms. The research documents a core feature of capital reallocation and its relationship to investment dynamics across the firm age spectrum. Additionally, the research present evidence that local capital supply matters may be relevant to the agglomerative forces in the urban economy. Using a sample of transactions covering models of equipment across a wide range of industries, the research shows that as firms age, they transition to newer and newer machines, and as  machines age, they are reallocated to younger and younger firms (Across 169 industries the relationship of young firms and old capital holds at the 1% level for 131 industries and at the 10% level for 142 industries). Throughout the paper, the authors Song Ma, Justin Murfin and Ryan Pratt (hereafter MMP) present several explanations for the dynamics of capital reallocation that was poorly understood before. An additional question that MMP addresses is how important is the available supply of used capital to entrepreneurial investment. MMP showed that while new capital trades nationally, average trade distance is strongly decreasing in capital age, perhaps due to fixed shipping costs becoming an increasing proportion of machine value as a machine ages. As well, MMP shows that local capital matters for entrepreneurial investment.
 
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
 ```{r cars, echo=FALSE}
 summary(cars)
