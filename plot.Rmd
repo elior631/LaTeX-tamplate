@@ -12,6 +12,7 @@ output:
     toc_depth: '2'
 ---
 
+In-line maths elements can be set with a different style: \(f(x) \). The same is true the other way around:
 
 ```{r include=FALSE}
 library(knitr)
@@ -20,10 +21,16 @@ library(rmarkdown)
 ```
 
 #  Biggest
+fdsfjdslkjgs
+
 
 ## Mid
 
+I love u Sarah
+
 ### Small
+
+I am stronger than you
 
 
 >This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
@@ -34,7 +41,9 @@ library(rmarkdown)
 
 \[ T^{i_1 i_2 \dots i_p}_{j_1 j_2 \dots j_q} = T(x^{i_1},\dots,x^{i_p},e_{j_1},\dots,e_{j_q}) \]
 
-sum \[ \int^\infty_0 \frac{dx}{du} = \sum_{i=0}^{\infty} \frac{4\beta_j}{fd} \]
+\begin{equation}
+  \int^\infty_0 \frac{dx}{du} = \sum_{i=0}^{\infty} \frac{4\beta_j}{fd}
+\end{equation}
 
 \[
 x \in \lambda_2^r
@@ -46,7 +55,7 @@ $\prod_{i=a}^{b} f(i)$
 
 Some of the \textbf{greatest} 
 discoveries in \underline{science} 
-were made by \textbf{\textit{accident for how many years?}}
+were made by \textbf{\textit{accident?}}
 
 \setlength{\parindent}{1cm}
 This is the text in first paragraph. This is the text in first 
