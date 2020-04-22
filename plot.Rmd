@@ -2,35 +2,71 @@
 title: "Latex training"
 author: "Elior Bliah"
 date: "`r format(Sys.time(), '%Y %B %d')`"
-output:
+output:  
   pdf_document:
     toc: yes
-    toc_depth: 2
-  html_document:
-    df_print: paged
-    toc: yes
-    toc_depth: '2'
+    toc_depth: 3
+ 
 ---
 
-In-line maths elements can be set with a different style: \(f(x) \). The same is true the other way around:
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(stargazer)
+```
+
 
 ```{r include=FALSE}
 library(knitr)
 library(rmarkdown)
-
+library(kableExtra)
 ```
 
-#  Biggest
-fdsfjdslkjgs
+```{r include=FALSE}
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tidyverse,httr,broom,gglpot2, DataExplorer,  knitr, magrittr, glmnet, tidymodels,kableExtra ,ROCit, caret)
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+urlfile= "https://raw.githubusercontent.com/ml4econ/problem-sets-2020/master/datasets/winequality_red.csv"
+winequality_red<- read_csv(url(urlfile))
+```
+
+```{r echo=FALSE}
+
+LinearR1 <- lm(quality ~ `fixed acidity`+ `volatile acidity`+ `citric acid`+`residual sugar`+ chlorides+`free sulfur dioxide`+`total sulfur dioxide`+density+pH+`sulphates`+`alcohol`, data = winequality_red)
+```
 
 
-## Mid
+In-line maths elements can be set with a different style: \(f(x) \). The same is true the other way around:
 
-I love u Sarah
 
-### Small
+#  BIG - Linear regression
 
-I am stronger than you
+
+```{r mylatextable1, results = "asis"}
+stargazer(LinearR1, type = 'latex', header = FALSE)
+```
+
+
+```{r echo=FALSE}
+plot_histogram(winequality_red)
+```
+
+## Medium - summary stat
+```{r}
+wine<- as.data.frame(winequality_red)
+```
+
+```{r mylatextable, results = "asis"}
+stargazer(wine,type ='latex' , summary = TRUE, header = FALSE)
+```
+### Small scatter plot
+```{r scatter}
+ggplot(mtcars, aes(x=wt, y=mpg)) + 
+  geom_point()+
+  geom_smooth(method=lm)
+```
+
 
 
 >This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
@@ -64,20 +100,37 @@ This is the text in second paragraph. This is the text in second
 paragraph. This is the text in second paragraph.
 
 \setlength{\columnsep}{1in}
-The paper shows a key input into entrepreneurship and the investment demand of young firms. The research documents a core feature of capital reallocation and its relationship to investment dynamics across the firm age spectrum. Additionally, the research present evidence that local capital supply matters may be relevant to the agglomerative forces in the urban economy. Using a sample of transactions covering models of equipment across a wide range of industries, the research shows that as firms age, they transition to newer and newer machines, and as  machines age, they are reallocated to younger and younger firms (Across 169 industries the relationship of young firms and old capital holds at the 1% level for 131 industries and at the 10% level for 142 industries). Throughout the paper, the authors Song Ma, Justin Murfin and Ryan Pratt (hereafter MMP) present several explanations for the dynamics of capital reallocation that was poorly understood before. An additional question that MMP addresses is how important is the available supply of used capital to entrepreneurial investment. MMP showed that while new capital trades nationally, average trade distance is strongly decreasing in capital age, perhaps due to fixed shipping costs becoming an increasing proportion of machine value as a machine ages. As well, MMP shows that local capital matters for entrepreneurial investment.
+The paper shows a key input into entrepreneurship and the investment demand of young firms. The research documents a core feature of capital reallocation and its relationship to investment dynamics across the firm age spectrum.
+
+\begin{itemize}
+\item Additionally, the research present evidence that local capital supply matters may be relevant to the agglomerative forces in the urban economy.
+\item Using a sample of transactions covering models of equipment across a wide range of industries, the research shows that as firms age, they transition to newer and newer machines, and as  machines age, they are reallocated to younger and younger firms (Across 169 industries the relationship of young firms and old capital holds at the 1% level for 131 industries and at the 10% level for 142 industries).
+\end{itemize}
+
+ \begin{enumerate}
+   \item First level item
+   \item First level item
+   \begin{enumerate}
+     \item Second level item
+     \item Second level item
+     \begin{enumerate}
+       \item Third level item
+       \item Third level item
+       \begin{enumerate}
+         \item Fourth level item
+         \item Fourth level item
+       \end{enumerate}
+     \end{enumerate}
+   \end{enumerate}
+ \end{enumerate}
+ 
+ one  \setcounter{enumii}{1} 
+ two  \setcounter{enumii}{2}
+ three  \setcounter{enumii}{3}
+ four  \setcounter{enumii}{4}
+five  \setcounter{enumii}{5}
 
 
 
-```{r cars, echo=FALSE}
-summary(cars)
-```
 
-## Including Plots
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
