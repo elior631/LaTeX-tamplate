@@ -31,10 +31,6 @@ urlfile= "https://raw.githubusercontent.com/ml4econ/problem-sets-2020/master/dat
 winequality_red<- read_csv(url(urlfile))
 ```
 
-```{r echo=FALSE}
-
-LinearR1 <- lm(quality ~ `fixed acidity`+ `volatile acidity`+ `citric acid`+`residual sugar`+ chlorides+`free sulfur dioxide`+`total sulfur dioxide`+density+pH+`sulphates`+`alcohol`, data = winequality_red)
-```
 
 
 In-line maths elements can be set with a different style: \(f(x) \). The same is true the other way around:
@@ -43,16 +39,25 @@ In-line maths elements can be set with a different style: \(f(x) \). The same is
 #  BIG - Linear regression
 
 
+```{r echo=FALSE}
+
+LinearR1 <- lm(quality ~ `fixed acidity`+ `volatile acidity`+ `citric acid`+`residual sugar`+ chlorides+`free sulfur dioxide`+`total sulfur dioxide`+density+pH+`sulphates`+`alcohol`, data = winequality_red)
+```
+
+
 ```{r mylatextable1, results = "asis"}
 stargazer(LinearR1, type = 'latex', header = FALSE)
 ```
 
-
+### histogram plot
 ```{r echo=FALSE}
 plot_histogram(winequality_red)
 ```
 
 ## Medium - summary stat
+
+this is a great summatry stat with one command
+
 ```{r}
 wine<- as.data.frame(winequality_red)
 ```
@@ -61,7 +66,7 @@ wine<- as.data.frame(winequality_red)
 stargazer(wine,type ='latex' , summary = TRUE, header = FALSE)
 ```
 ### Small scatter plot
-```{r scatter}
+```{r scatter, echo=FALSE, message=FALSE, warning=FALSE}
 ggplot(mtcars, aes(x=wt, y=mpg)) + 
   geom_point()+
   geom_smooth(method=lm)
@@ -129,8 +134,4 @@ The paper shows a key input into entrepreneurship and the investment demand of y
  three  \setcounter{enumii}{3}
  four  \setcounter{enumii}{4}
 five  \setcounter{enumii}{5}
-
-
-
-
 
