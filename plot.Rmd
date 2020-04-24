@@ -1,5 +1,5 @@
 ---
-title: "Latex training"
+title: "LaTeX tamplate "
 author: "Elior Bliah"
 date: "`r format(Sys.time(), '%Y %B %d')`"
 output:  
@@ -38,7 +38,7 @@ In-line maths elements can be set with a different style: \(f(x) \). The same is
 
 #  BIG - Linear regression
 
-
+#regression for the plot later on
 ```{r echo=FALSE}
 
 LinearR1 <- lm(quality ~ `fixed acidity`+ `volatile acidity`+ `citric acid`+`residual sugar`+ chlorides+`free sulfur dioxide`+`total sulfur dioxide`+density+pH+`sulphates`+`alcohol`, data = winequality_red)
